@@ -5,11 +5,11 @@ const onClickAdd = () => {
   const inputText = document.getElementById("add-text").value;
   document.getElementById("add-text").value = "";
 
-  createImcompleteList(inputText);
+  createIncompleteList(inputText);
 };
 
 // 未完了リストから削除
-const deleteFromImcompleteList = (target) => {
+const deleteFromIncompleteList = (target) => {
   document.getElementById("imcomplete-list").removeChild(target);
 };
 
@@ -19,7 +19,7 @@ const deleteFromCompleteList = (target) => {
 };
 
 // 未完了リストに要素を生成
-const createImcompleteList = (text) => {
+const createIncompleteList = (text) => {
   // divタグ生成
   const div = document.createElement("div");
   div.className = "list-row";
@@ -44,7 +44,7 @@ const createImcompleteList = (text) => {
     // 戻す処理
     backButton.addEventListener("click", () => {
       const text = backButton.parentNode.firstElementChild.innerText;
-      createImcompleteList(text);
+      createIncompleteList(text);
       deleteFromCompleteList(backButton.parentNode.parentNode);
     });
 
@@ -64,7 +64,7 @@ const createImcompleteList = (text) => {
   deleteButton.addEventListener("click", () => {
     // 削除機能
     const deleteTarget = deleteButton.parentNode.parentNode;
-    deleteFromImcompleteList(deleteTarget);
+    deleteFromIncompleteList(deleteTarget);
   });
 
   div.appendChild(p);
